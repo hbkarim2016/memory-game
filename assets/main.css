@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+    box-sizing: border-box;
+    transition: all 0.5 ease-in-out;
+    font-family: 'Lobster', cursive;
+    margin: 0;
+    border: 0;
+}
+body{
+    height: 100vh;
+    background-image: linear-gradient( #1b2631  ,   #34495e  );
+    overflow: hidden;
+}
+img{
+    width: 100%;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+section #lives{
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+}
+section #lives #livesCount{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(6,1rem);
+    grid-gap: 10px;
+    margin: 10px;
+}
+
+section #root{
+    display: grid;
+    grid-template-columns: repeat(4,8rem);
+    grid-template-rows: repeat(4,8rem);
+    grid-gap: 2rem;
+    perspective: 800px;
+}
+.card{
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid  #ebedef;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0px 10px 10px -2px #00000090;
+    transform-style:preserve-3d ;
+    cursor: pointer;
+    transition: transform 1.3s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.face,
+.back{
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    pointer-events: none;
+}
+.face{
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.back{
+    height: 100%;
+    background-color: white;
+    backface-visibility: hidden;
+}
+.backImg{
+    background-image: url(imgs/background.png);
+    background-size: 70%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+.face::before{
+    content:'';
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.toggleCard{
+    transform: rotateY(180deg);
+}
